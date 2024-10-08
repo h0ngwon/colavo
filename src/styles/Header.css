@@ -1,0 +1,53 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 20px;
+}
+
+.close-button {
+  position: absolute;
+  left: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.add-button {
+  position: absolute;
+  right: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.header-content-wrapper {
+  flex: 1;
+  text-align: center;
+  height: 100%;
+}
+
+.default-header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.default-header-content-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.default-header-content-date {
+  font-size: 14px;
+  color: #b7b7b7;
+}
+
+.header-content-title {
+  font-size: 20px;
+  font-weight: bold;
+}
