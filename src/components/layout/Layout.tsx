@@ -22,7 +22,7 @@ const Layout = () => {
           <Outlet />
         </main>
       </div>
-      <Footer total={234323} buttonText="다음" />
+      <Footer />
     </>
   );
 };
