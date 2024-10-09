@@ -1,7 +1,7 @@
 import "../styles/Button.css";
 
 interface Props {
-  text: string;
+  text?: string;
   onClick?: () => void;
   className?: "secondary" | "third" | "gray";
   children?: React.ReactNode;

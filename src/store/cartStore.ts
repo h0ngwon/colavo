@@ -1,17 +1,12 @@
 import { create } from 'zustand';
-
-interface Item {
-  id: string;
-  name: string;
-  price: number;
-  count: number;
-}
+import { IItem } from "../types/types";
 
 interface StoreState {
-  selectedItems: Item[];
+  selectedItems: IItem[];
   totalPrice: number;
-  addItem: (item: Item) => void;
+  addItem: (item: IItem) => void;
   removeItem: (id: string) => void;
+  updateQuantity: (id: string, newQuantity: number) => void;
 }
 
 const cartStore = create<StoreState>((set) => ({
@@ -25,6 +20,13 @@ const cartStore = create<StoreState>((set) => ({
   removeItem: (id) => set((state) => {
     const updatedItems = state.selectedItems.filter(item => item.id !== id);
     const updatedPrice = updatedItems.reduce((sum, item) => sum + item.price, 0);
+    return { selectedItems: updatedItems, totalPrice: updatedPrice };
+  }),
+  updateQuantity: (id, newQuantity) => set((state) => {
+    const updatedItems = state.selectedItems.map(item =>
+      item.id === id ? { ...item, count: newQuantity } : item
+    );
+    const updatedPrice = updatedItems.reduce((sum, item) => sum + item.price * item.count, 0);
     return { selectedItems: updatedItems, totalPrice: updatedPrice };
   }),
 }));

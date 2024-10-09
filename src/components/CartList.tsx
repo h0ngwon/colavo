@@ -1,0 +1,78 @@
+import { useState } from "react";
+import { FaChevronDown } from "react-icons/fa6";
+import cartStore from "../store/cartStore";
+import modalStore from "../store/modalStore";
+import "../styles/Cart.css";
+import "../styles/Modal.css";
+import { IItem } from "../types/types";
+import Modal from "./Modal";
+
+const CartList = () => {
+  const { selectedItems, removeItem, updateQuantity } = cartStore();
+  const { isModalOpen, openModal, closeModal } = modalStore();
+  const [selectedItem, setSelectedItem] = useState<IItem | null>(null);
+  const [quantity, setQuantity] = useState(0);
+
+  const handleQuantityChange = () => {
+    if (selectedItem) {
+      updateQuantity(selectedItem.id, quantity);
+      closeModal();
+    }
+  };
+
+  const handleDelete = () => {
+    if (selectedItem) {
+      removeItem(selectedItem.id);
+      closeModal();
+    }
+  };
+
+  const handleOpenModal = (item: IItem) => {
+    setSelectedItem(item);
+    setQuantity(item.count);
+    openModal();
+  };
+
+  return (
+    <>
+      <ul className="cart-list-container">
+        {selectedItems.map((item) => (
+          <li key={item.id} className="cart-list-item-container">
+            <div className="cart-list-item">
+              <span>{item.name}</span>
+              <span className="cart-list-item-price">{item.price.toLocaleString()}원</span>
+            </div>
+            <div className="cart-list-item-count" onClick={() => handleOpenModal(item)}>
+              <span>{item.count}</span>
+              <FaChevronDown size={20} color="#a6a6a6" />
+            </div>
+          </li>
+        ))}
+      </ul>
+
+      <Modal isOpen={isModalOpen}>
+        {selectedItem && (
+          <>
+            <h3>{selectedItem.name}</h3>
+            <div className="modal-quantity-container">
+              <input
+                type="range"
+                min="1"
+                max="10"
+                value={quantity}
+                onChange={(e) => setQuantity(Number(e.target.value))}
+              />
+              <span>{quantity}</span>
+            </div>
+            <div className="modal-button-container">
+              <button onClick={handleDelete}>삭제</button>
+              <button onClick={handleQuantityChange}>완료</button>
+            </div>
+          </>
+        )}
+      </Modal>
+    </>
+  );
+};
+
+export default CartList;

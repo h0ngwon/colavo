@@ -2,6 +2,7 @@ import { IoIosAddCircle } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import "../styles/Home.css";
+import CartList from "../components/CartList";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -15,7 +16,9 @@ const Home = () => {
           <IoIosAddCircle size={16} />
         </Button>
       </div>
-      <div className="content-container"></div>
+      <div className="content-container">
+        <CartList />
+      </div>
     </div>
   );
 };
