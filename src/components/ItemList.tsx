@@ -9,7 +9,10 @@ const ItemList = () => {
   const items = useFetchItems();
   const { selectedItems, addItem, removeItem } = cartStore();
 
-  const isSelected = useCallback((id: string) => selectedItems.some((item) => item.id === id), [selectedItems]); // 선택된 아이템인지 확인
+  const isSelected = useCallback(
+    (id: string) => selectedItems.some((item) => item.id === id),
+    [selectedItems],
+  ); // 선택된 아이템인지 확인
 
   const handleClick = (id: string, item: IItem) => {
     // 아이템의 아이디가 있으면 선택된 아이템에서 제거, 없으면 선택된 아이템에 추가

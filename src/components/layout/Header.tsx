@@ -10,7 +10,8 @@ interface Props {
 const Header = ({ children }: Props) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const showAddButton = location.pathname.includes("discount") || location.pathname.includes("item");
+  const showAddButton =
+    location.pathname.includes("discount") || location.pathname.includes("item");
 
   return (
     <header className="header">

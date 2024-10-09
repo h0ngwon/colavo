@@ -16,7 +16,9 @@ const Layout = () => {
 
   return (
     <>
-      <Header>{path === "/" ? <HeaderContent title="임홍원" showDate /> : <HeaderContent title={title} />}</Header>
+      <Header>
+        {path === "/" ? <HeaderContent title="임홍원" showDate /> : <HeaderContent title={title} />}
+      </Header>
       <main className="container">
         <Outlet />
       </main>

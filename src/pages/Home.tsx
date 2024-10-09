@@ -1,8 +1,8 @@
 import { IoIosAddCircle } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
-import "../styles/Home.css";
 import CartList from "../components/CartList";
+import "../styles/Home.css";
 
 const Home = () => {
   const navigate = useNavigate();
