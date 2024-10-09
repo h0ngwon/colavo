@@ -3,13 +3,15 @@ import "../styles/Button.css";
 interface Props {
   text: string;
   onClick?: () => void;
-  className?: string;
+  className?: "secondary" | "third" | "gray";
+  children?: React.ReactNode;
 }
 
-const Button = ({ text, onClick, className }: Props) => {
+const Button = ({ text, onClick, className, children }: Props) => {
   return (
     <button type="button" onClick={onClick} className={`button ${className}`}>
-      {text}
+      <div>{children}</div>
+      <span>{text}</span>
     </button>
   );
 };

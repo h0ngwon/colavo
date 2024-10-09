@@ -1,5 +1,8 @@
+import ItemList from "../components/ItemList";
+import "../styles/Item.css";
+
 const Item = () => {
-  return <div>Item</div>;
+  return <ItemList />;
 };
 
 export default Item;

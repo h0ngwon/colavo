@@ -1,0 +1,28 @@
+.item-list {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 40px 20px;
+  gap: 30px;
+}
+
+.item-list-item {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.item-list-item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.item-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.item-price {
+  font-size: 14px;
+  color: #7e7c7c;
+}

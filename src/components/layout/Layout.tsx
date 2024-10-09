@@ -16,12 +16,10 @@ const Layout = () => {
 
   return (
     <>
-      <div className="container">
-        <Header>{path === "/" ? <HeaderContent title="임홍원" showDate /> : <HeaderContent title={title} />}</Header>
-        <main className="content-container">
-          <Outlet />
-        </main>
-      </div>
+      <Header>{path === "/" ? <HeaderContent title="임홍원" showDate /> : <HeaderContent title={title} />}</Header>
+      <main className="container">
+        <Outlet />
+      </main>
       <Footer />
     </>
   );
