@@ -13,6 +13,7 @@ export interface IDiscount {
   id: string;
   name: string;
   rate: number;
+  itemId: string;
 }
 
 export interface IDiscounts {

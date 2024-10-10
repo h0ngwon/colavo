@@ -55,7 +55,13 @@ const CartList = () => {
           <li key={discount.id} className="cart-list-item-container">
             <div className="cart-list-item">
               <span>{discount.name}</span>
-              <span className="cart-list-item-price">{Math.round(discount.rate * 100)}%</span>
+              <span className="cart-list-item-rate">{Math.round(discount.rate * 100)}%</span>
+            </div>
+            <div className="cart-list-item-count">
+              <button>
+              수정
+              <FaChevronDown size={20} color="#a6a6a6" />
+              </button>
             </div>
           </li>
         ))}

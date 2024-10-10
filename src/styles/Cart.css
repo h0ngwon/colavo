@@ -41,3 +41,17 @@
   color: #7c7c7c;
   cursor: pointer;
 }
+
+.cart-list-item-rate {
+  font-size: 14px;
+  color: #ffa2c1;
+}
+
+.cart-list-item-count button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}

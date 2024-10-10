@@ -45,13 +45,17 @@ const cartStore = create<StoreState>((set) => ({
     }),
   addDiscount: (discount: IDiscount) =>
     set((state) => {
-      const updatedDiscounts = [...state.selectedDiscounts, discount];
+      const updatedDiscounts = [...state.selectedDiscounts, discount ];
       const updatedTotalDiscount = updatedDiscounts.reduce(
         (sum, discount) => sum + discount.rate,
         0,
       );
       const finalPrice = state.totalPrice * (1 - updatedTotalDiscount);
-      return { selectedDiscounts: updatedDiscounts, totalDiscount: updatedTotalDiscount, finalPrice };
+      return {
+        selectedDiscounts: updatedDiscounts,
+        totalDiscount: updatedTotalDiscount,
+        finalPrice,
+      };
     }),
   removeDiscount: (id: string) =>
     set((state) => {
@@ -61,7 +65,11 @@ const cartStore = create<StoreState>((set) => ({
         0,
       );
       const finalPrice = state.totalPrice * (1 - updatedTotalDiscount);
-      return { selectedDiscounts: updatedDiscounts, totalDiscount: updatedTotalDiscount, finalPrice };
+      return {
+        selectedDiscounts: updatedDiscounts,
+        totalDiscount: updatedTotalDiscount,
+        finalPrice,
+      };
     }),
 }));
 

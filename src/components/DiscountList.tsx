@@ -15,7 +15,7 @@ const DiscountList = () => {
   );
 
   const handleClick = (id: string, discount: IDiscount) => {
-    addDiscount({ ...discount, id });
+    addDiscount( {...discount, id} );
 
     if (isSelected(id)) {
       removeDiscount(id);
