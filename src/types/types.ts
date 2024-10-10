@@ -10,6 +10,7 @@ export interface IItems {
 }
 
 export interface IDiscount {
+  id: string;
   name: string;
   rate: number;
 }

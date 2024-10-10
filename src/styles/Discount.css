@@ -1,0 +1,28 @@
+.discount-list {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 40px 20px;
+  gap: 10px;
+}
+
+.discount-list-item {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.discount-list-item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.discount-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.discount-rate {
+  font-size: 14px;
+  color: #ffa2c1;
+}

@@ -4,6 +4,7 @@ import Button from "../components/Button";
 import CartList from "../components/CartList";
 import "../styles/Home.css";
 
+
 const Home = () => {
   const navigate = useNavigate();
   return (

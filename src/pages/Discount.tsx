@@ -1,5 +1,7 @@
+import DiscountList from "../components/DiscountList";
+
 const Discount = () => {
-  return <div>Discount</div>;
+  return <DiscountList />;
 };
 
 export default Discount;

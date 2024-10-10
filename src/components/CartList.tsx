@@ -8,7 +8,7 @@ import { IItem } from "../types/types";
 import Modal from "./Modal";
 
 const CartList = () => {
-  const { selectedItems, removeItem, updateQuantity } = cartStore();
+  const { selectedItems, selectedDiscounts, removeItem, updateQuantity } = cartStore();
   const { isModalOpen, openModal, closeModal } = modalStore();
   const [selectedItem, setSelectedItem] = useState<IItem | null>(null);
   const [quantity, setQuantity] = useState(0);
@@ -34,7 +34,7 @@ const CartList = () => {
   };
 
   return (
-    <>
+    <div className="cart-container">
       <ul className="cart-list-container">
         {selectedItems.map((item) => (
           <li key={item.id} className="cart-list-item-container">
@@ -45,6 +45,17 @@ const CartList = () => {
             <div className="cart-list-item-count" onClick={() => handleOpenModal(item)}>
               <span>{item.count}</span>
               <FaChevronDown size={20} color="#a6a6a6" />
+            </div>
+          </li>
+        ))}
+      </ul>
+
+      <ul className="cart-list-container">
+        {selectedDiscounts.map((discount) => (
+          <li key={discount.id} className="cart-list-item-container">
+            <div className="cart-list-item">
+              <span>{discount.name}</span>
+              <span className="cart-list-item-price">{Math.round(discount.rate * 100)}%</span>
             </div>
           </li>
         ))}
@@ -71,7 +82,7 @@ const CartList = () => {
           </>
         )}
       </Modal>
-    </>
+    </div>
   );
 };
 
